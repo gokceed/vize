@@ -13,16 +13,21 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 var dc = {};
 
-var homeHtmlUrl = "snippets/home-snippet.html";
-var allCategoriesUrl =
-  "https://davids-restaurant.herokuapp.com/categories.json";
-var categoriesTitleHtml = "snippets/categories-title-snippet.html";
-var categoryHtml = "snippets/category-snippet.html";
-var menuItemsUrl =
-  "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
-var menuItemsTitleHtml = "snippets/menu-items-title.html";
-var menuItemHtml = "snippets/menu-item.html";
-
+var homeHtmlUrl = "snippets/anamenu-snippet.html";
+var allCategoriesUrl ="jsons/personel.json";
+var categoriesTitleHtml ="snippets/personeltitle.html";
+var categoryHtml = "snippets/personelsnippet.html";
+var menuItemsTitleHtml ="snippets/workertitle.html";
+var menuItemHtml = "snippets/worker.html";
+var egitimjson="jsons/egitim.json";
+var sınıftitle="snippets/sınıftitle.html";
+var sınıf="snippets/sınıf.html";
+var lisanssınıftitle="snippets/lisanssınıftitle.html";
+var lisanssınıf="snippets/lisanssınıf.html";
+var donemtitle="snippets/donemtitle.html";
+var donem="snippets/donem.html";
+var programtitle="snippets/programtitle.html";
+var program="snippets/program.html";
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
   var targetElem = document.querySelector(selector);
@@ -62,30 +67,14 @@ var switchMenuToActive = function () {
 
 // On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
-
-// TODO: STEP 0: Look over the code from
-// *** start ***
-// to
-// *** finish ***
-// below.
-// We changed this code to retrieve all categories from the server instead of
-// simply requesting home HTML snippet. We now also have another function
-// called buildAndShowHomeHTML that will receive all the categories from the server
-// and process them: choose random category, retrieve home HTML snippet, insert that
-// random category into the home HTML snippet, and then insert that snippet into our
-// main page (index.html).
-//
-// TODO: STEP 1: Substitute [...] below with the *value* of the function buildAndShowHomeHTML,
-// so it can be called when server responds with the categories data.
-
-// *** start ***
-// On first load, show home view
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
-  buildAndShowHomeHTM, // ***** <---- TODO: STEP 1: Substitute [...] ******
+  buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
   true); // Explicitely setting the flag to get JSON from server processed into an object literal
 });
+
+
 // *** finish **
 
 // Builds HTML for the home page based on categories array
@@ -96,32 +85,9 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-
-
-      // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
-      // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
-      // variable's name implies it expects.
-     var chosenCategoryShortName = chooseRandomCategory(categories).short_name;
-
-
-      // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
-      // chosen category from STEP 2. Use existing insertProperty function for that purpose.
-      // Look through this code for an example of how to do use the insertProperty function.
-      // WARNING! You are inserting something that will have to result in a valid Javascript
-      // syntax because the substitution of {{randomCategoryShortName}} becomes an argument
-      // being passed into the $dc.loadMenuItems function. Think about what that argument needs
-      // to look like. For example, a valid call would look something like this:
-      // $dc.loadMenuItems('L')
-      // Hint: you need to surround the chosen category short name with something before inserting
-      // it into the home html snippet.
-      //
+       var chosenCategoryShortName = chooseRandomCategory(categories).short_name;
       // var homeHtmlToInsertIntoMainPage = ....
       var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, 'randomCategoryShortName' ,"'" + chosenCategoryShortName + "'"); 
-
-      // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
-      // Use the existing insertHtml function for that purpose. Look through this code for an example
-      // of how to do that.
-      // ....
       insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
 
     },
@@ -130,6 +96,7 @@ function buildAndShowHomeHTML (categories) {
 
 
 // Given array of category objects, returns a random category object.
+
 function chooseRandomCategory (categories) {
   // Choose a random index into the array (from 0 inclusively until array length (exclusively))
   var randomArrayIndex = Math.floor(Math.random() * categories.length);
@@ -138,7 +105,6 @@ function chooseRandomCategory (categories) {
   return categories[randomArrayIndex];
 }
 
-
 // Load the menu categories view
 dc.loadMenuCategories = function () {
   showLoading("#main-content");
@@ -146,17 +112,83 @@ dc.loadMenuCategories = function () {
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
 };
+dc.loadegitim = function(){
+   showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    egitimjson,
+    buildAndShowsınıfilkHTML);
+}
+dc.loadkacıncı = function(cname){
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    egitimjson,
+    function(egitimjson){
 
+        if(egitimjson[0].sınıf===cname)
+        {
+          buildAndShowkacıncıilkHTML(egitimjson[0]);
+        }else{
+          buildAndShowdonemilkHTML(egitimjson[1])
+
+        }
+
+       
+    }
+    );
+}
+dc.loaddonem = function(cname){
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    egitimjson,
+    function(egitimjson){
+
+       for(var i=0;i<egitimjson[0].sinifno.length;i++){
+        if(egitimjson[0].sinifno[i].id==cname)
+        {
+          buildAndShowdonemilkHTML(egitimjson[0].sinifno[i]);
+        }}
+
+       
+    }
+    );
+}
+dc.loadprogram = function(cname){
+  
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    egitimjson,
+    function(egitimjson){
+
+      
+          buildAndShowprogramilkHTML(egitimjson[0].sinifno[0].donem[0].ders);
+
+      
+
+       
+    }
+    );
+}
 
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
-dc.loadMenuItems = function (categoryShort) {
+dc.loadMenuItems = function (cname) {
+
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
-    menuItemsUrl + categoryShort,
-    buildAndShowMenuItemsHTML);
-};
+    allCategoriesUrl,
+    function(allCategoriesUrl){
 
+       for(var i=0;i<allCategoriesUrl.length;i++){
+        if(allCategoriesUrl[i].short_name===cname)
+        {
+          buildAndShowMenuItemsHTML(allCategoriesUrl[i]);
+        }
+
+       }
+    }
+    );
+  
+};
 
 // Builds HTML for the categories page based on the data
 // from the server
@@ -211,13 +243,180 @@ function buildCategoriesViewHtml(categories,
   finalHtml += "</section>";
   return finalHtml;
 }
+function buildAndShowsınıfilkHTML (categories) {
+  // Load title snippet of categories page
+  $ajaxUtils.sendGetRequest(
+    sınıftitle,
+    function (sınıftitle) {
+      // Retrieve single category snippet
+      $ajaxUtils.sendGetRequest(
+        sınıf,
+        function (sınıf) {
+          // Switch CSS class active to menu button
+          switchMenuToActive();
+
+          var categoriesViewHtml =
+            buildAndShowsınıfHTML(categories,
+                                    sınıftitle,
+                                    sınıf);
+          insertHtml("#main-content", categoriesViewHtml);
+        },
+        false);
+    },
+    false);
+}
+ function buildAndShowdonemilkHTML(categories){
+   $ajaxUtils.sendGetRequest(
+    donemtitle,
+    function (donemtitle) {
+      // Retrieve single category snippet
+      $ajaxUtils.sendGetRequest(
+        donem,
+        function (donem) {
+          // Switch CSS class active to menu button
+          switchMenuToActive();
+
+          var categoriesViewHtml =
+            buildAndShowdonemHTML(categories,
+                                    donemtitle,
+                                    donem);
+          insertHtml("#main-content", categoriesViewHtml);
+        },
+        false);
+    },
+    false);
+
+ }
+ function buildAndShowprogramilkHTML(categories){
+  console.log(categories);
+   $ajaxUtils.sendGetRequest(
+    programtitle,
+    function (programtitle) {
+      // Retrieve single category snippet
+      $ajaxUtils.sendGetRequest(
+        program,
+        function (program) {
+          // Switch CSS class active to menu button
+          switchMenuToActive();
+
+          var categoriesViewHtml =
+            buildAndShowprogramHTML(categories,
+                                    programtitle,
+                                    program);
+          insertHtml("#main-content", categoriesViewHtml);
+        },
+        false);
+    },
+    false);
+ }
+ function buildAndShowprogramHTML(egitimjson,sınıftitlehtml,sınıfhtml)
+  {
+    
+     var finalHtml=sınıftitlehtml;
+  finalHtml += "<section class='row'>";
+   for (var i = 0; i < egitimjson.length; i++) {
+    
+    for (var i = 0; i < egitimjson.length; i++) {
+    var sınıf =egitimjson[i].x;
+  var html=sınıfhtml;
+     html =
+      insertProperty(html, "saat", sınıf[i]);
+      html =
+      insertProperty(html, "pazartesi", sınıf[1]);
+      html =
+      insertProperty(html, "salı", sınıf[2]);
+      html =
+      insertProperty(html, "carsamba", sınıf[3]);
+      html =
+      insertProperty(html, "persembe", sınıf[4]);
+      html =
+      insertProperty(html, "cuma", sınıf[5]);
+      finalHtml += html;
+    }
+    
+   }
+   finalHtml += "</section>";
+  return finalHtml;
+
+
+  }
+ function buildAndShowdonemHTML(egitimjson,sınıftitlehtml,sınıfhtml)
+  {
+     var finalHtml=sınıftitlehtml;
+  finalHtml += "<section class='row'>";
+   for (var i = 0; i < egitimjson.donem.length; i++) {
+    var html=sınıfhtml;
+    var sınıf =egitimjson.donem[i].ad;
+     html =
+      insertProperty(html, "x", sınıf);
+      finalHtml += html;
+   }
+   finalHtml += "</section>";
+  return finalHtml;
+
+
+  }
+
+function buildAndShowkacıncıilkHTML(categories){
+$ajaxUtils.sendGetRequest(
+    lisanssınıftitle,
+    function (lisanssınıftitle) {
+      // Retrieve single category snippet
+      $ajaxUtils.sendGetRequest(
+        lisanssınıf,
+        function (lisanssınıf) {
+          // Switch CSS class active to menu button
+          switchMenuToActive();
+
+          var categoriesViewHtml =
+            buildAndShowkacıncıHTML(categories,
+                                    lisanssınıftitle,
+                                    lisanssınıf);
+          insertHtml("#main-content", categoriesViewHtml);
+        },
+        false);
+    },
+    false);
+}
+
+function buildAndShowkacıncıHTML(egitimjson,sınıftitlehtml,sınıfhtml)
+  {
+     var finalHtml=sınıftitlehtml;
+  finalHtml += "<section class='row'>";
+   for (var i = 0; i < egitimjson.sinifno.length; i++) {
+    var html=sınıfhtml;
+    var sınıf =egitimjson.sinifno[i].id;
+     html =
+      insertProperty(html, "x", sınıf);
+      finalHtml += html;
+   }
+   finalHtml += "</section>";
+  return finalHtml;
+
+
+  }
+
+function buildAndShowsınıfHTML(egitimjson,sınıftitlehtml,sınıfhtml){
+  var finalHtml=sınıftitlehtml;
+  finalHtml += "<section class='row'>";
+   for (var i = 0; i < egitimjson.length; i++) {
+    var html=sınıfhtml;
+    var sınıf =egitimjson[i].sınıf;
+     html =
+      insertProperty(html, "sınıf", sınıf);
+      finalHtml += html;
+   }
+   finalHtml += "</section>";
+  return finalHtml;
+
+}
 
 
 
-// Builds HTML for the single category page based on the data
-// from the server
 function buildAndShowMenuItemsHTML (categoryMenuItems) {
   // Load title snippet of menu items page
+  console.log(categoryMenuItems);
+ console.log(categoryMenuItems);
   $ajaxUtils.sendGetRequest(
     menuItemsTitleHtml,
     function (menuItemsTitleHtml) {
@@ -226,8 +425,11 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
         menuItemHtml,
         function (menuItemHtml) {
           // Switch CSS class active to menu button
-          switchMenuToActive();
-
+           switchMenuToActive();
+           
+      
+    
+    // Insert menu item values
           var menuItemsViewHtml =
             buildMenuItemsViewHtml(categoryMenuItems,
                                    menuItemsTitleHtml,
@@ -237,6 +439,7 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
         false);
     },
     false);
+
 }
 
 
@@ -244,23 +447,21 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
 // build menu items view HTML to be inserted into page
 function buildMenuItemsViewHtml(categoryMenuItems,
                                 menuItemsTitleHtml,
-                                menuItemHtml) {
+                                menuItemHtml) { 
+
+    
 
   menuItemsTitleHtml =
     insertProperty(menuItemsTitleHtml,
                    "name",
-                   categoryMenuItems.category.name);
-  menuItemsTitleHtml =
-    insertProperty(menuItemsTitleHtml,
-                   "special_instructions",
-                   categoryMenuItems.category.special_instructions);
-
+                   categoryMenuItems.name);
   var finalHtml = menuItemsTitleHtml;
   finalHtml += "<section class='row'>";
 
   // Loop over menu items
-  var menuItems = categoryMenuItems.menu_items;
-  var catShortName = categoryMenuItems.category.short_name;
+  
+  var menuItems = categoryMenuItems.worker;
+ 
   for (var i = 0; i < menuItems.length; i++) {
     // Insert menu item values
     var html = menuItemHtml;
@@ -268,32 +469,21 @@ function buildMenuItemsViewHtml(categoryMenuItems,
       insertProperty(html, "short_name", menuItems[i].short_name);
     html =
       insertProperty(html,
-                     "catShortName",
-                     catShortName);
+                      "lisans",
+                      menuItems[i].lisans);
     html =
-      insertItemPrice(html,
-                      "price_small",
-                      menuItems[i].price_small);
+      insertProperty(html,
+                            "eposta",
+                            menuItems[i].eposta);
     html =
-      insertItemPortionName(html,
-                            "small_portion_name",
-                            menuItems[i].small_portion_name);
-    html =
-      insertItemPrice(html,
-                      "price_large",
-                      menuItems[i].price_large);
-    html =
-      insertItemPortionName(html,
-                            "large_portion_name",
-                            menuItems[i].large_portion_name);
+      insertProperty(html,
+                      "telefon",
+                      menuItems[i].telefon);
     html =
       insertProperty(html,
                      "name",
                      menuItems[i].name);
-    html =
-      insertProperty(html,
-                     "description",
-                     menuItems[i].description);
+  
 
     // Add clearfix after every second menu item
     if (i % 2 !== 0) {
@@ -302,41 +492,12 @@ function buildMenuItemsViewHtml(categoryMenuItems,
     }
 
     finalHtml += html;
-  }
-
-  finalHtml += "</section>";
+  } 
+   finalHtml += "</section>";
   return finalHtml;
+
 }
 
-
-// Appends price with '$' if price exists
-function insertItemPrice(html,
-                         pricePropName,
-                         priceValue) {
-  // If not specified, replace with empty string
-  if (!priceValue) {
-    return insertProperty(html, pricePropName, "");
-  }
-
-  priceValue = "$" + priceValue.toFixed(2);
-  html = insertProperty(html, pricePropName, priceValue);
-  return html;
-}
-
-
-// Appends portion name in parens if it exists
-function insertItemPortionName(html,
-                               portionPropName,
-                               portionValue) {
-  // If not specified, return original string
-  if (!portionValue) {
-    return insertProperty(html, portionPropName, "");
-  }
-
-  portionValue = "(" + portionValue + ")";
-  html = insertProperty(html, portionPropName, portionValue);
-  return html;
-}
 
 
 global.$dc = dc;

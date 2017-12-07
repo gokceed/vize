@@ -1,0 +1,36 @@
+[{
+	"sınıf":"Lisans",
+	 "sinifno":[
+	 	{"id":1,
+	 		"donem":[
+	 			{"ad":"güz"
+	 			},{"ad":"bahar"}
+	 		]
+
+	 	},
+	 	{"id":2,
+	 	"donem":[
+	 			{"ad":"güz"},{"ad":"bahar"}
+	 		]},
+	 	{"id":3,
+	 	"donem":[
+	 			{"ad":"güz"},{"ad":"bahar"}
+	 		]},
+	 	{"id":4,
+	 	"donem":[
+	 			{"ad":"güz"},{"ad":"bahar"}
+	 		]}
+
+
+	 ]
+	
+},
+{
+	"sınıf":"YüksekLisans",
+	"donem":[
+		{"ad":"güz"},{"ad":"bahar"}
+
+	]
+
+}
+]

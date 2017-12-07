@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>David Chu's China Bistro</title>
+    <title>Ege Üniversitesi Bilgisayar Mühendisliği</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 <body>
   <header>
@@ -20,11 +21,7 @@
           </a>
 
           <div class="navbar-brand">
-            <a href="index.html"><h1>David Chu's China Bistro</h1></a>
-            <p>
-              <img src="images/star-k-logo.png" alt="Kosher certification">
-              <span>Kosher Certified</span>
-            </p>
+            <a href="index.html"><h1>Ege üniversitesi <br> Bilgisayar Mühendisliği <br>Bölümü</h1></a>
           </div>
 
           <button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
@@ -43,59 +40,71 @@
             </li>
             <li id="navMenuButton">
               <a href="#" onclick="$dc.loadMenuCategories();">
-                <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
+                <span class="glyphicon glyphicon-time"></span><br class="hidden-xs"><p>Tarihçe</p></a>
             </li>
-            <li>
-              <a href="#">
-                <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> About</a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Awards</a>
-            </li>
-            <li id="phone" class="hidden-xs">
-              <a href="tel:410-602-5008">
-                <span>410-602-5008</span></a><div>* We Deliver</div>
-            </li>
+           <li>
+            <a href="#"><span class="glyphicon glyphicon-user"></span><br class="hidden-xs"><p>Personel</p></a>
+          </li>
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-book"></span><br class="hidden-xs"><p>Eğitim</p></a>
+          </li>         
+            
           </ul><!-- #nav-list -->
         </div><!-- .collapse .navbar-collapse -->
       </div><!-- .container -->
     </nav><!-- #header-nav -->
   </header>
 
-  <div id="call-btn" class="visible-xs">
-    <a class="btn" href="tel:410-602-5008">
-    <span class="glyphicon glyphicon-earphone"></span>
-    410-602-5008
-    </a>
-  </div>
-  <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
 
   <div id="main-content" class="container"></div>
 
   <footer class="panel-footer">
     <div class="container">
       <div class="row">
-        <section id="hours" class="col-sm-4">
-          <span>Hours:</span><br>
-          Sun-Thurs: 11:15am - 10:00pm<br>
-          Fri: 11:15am - 2:30pm<br>
-          Saturday Closed
+        <section id="linkler" class="col-sm-3">
+         <span>&nbsp; &nbsp; Yararlı Linkler <br><br></span>         
+             <a href="http://www.ege.edu.tr/tr-0/anasayfa.html#tab-1" title="Ege Üniversitesi" target="_blank" ><span class="glyphicon glyphicon-book"></span></a>
+          
+            <a href="https://posta.ege.edu.tr/" title="E-posta(eski)" target="_blank"><span class="glyphicon glyphicon-envelope"></span ></a><br>
+          
+            <a href="http://postayeni.ege.edu.tr/" title="E-posta(yeni)" target="_blank"><span class="glyphicon glyphicon-envelope"></span></a>
+          
+            <a href="http://egetel.ege.edu.tr/" title="Telefon" target="_blank"> <span class="glyphicon glyphicon-earphone"></span></a><br>
+        
+            <a  href="http://www.egeduyuru.ege.edu.tr/" title="Ege Duyuru" target="_blank"><span class="glyphicon glyphicon-volume-up"></span></a>
+          
+            <a href="http://www.ege.edu.tr/tr-121/Mezun.html#tab-1" title="Mezunlar" target="_blank"><span class="glyphicon glyphicon-education"></span></a><br>
+          
+            <a href="http://egeweb.ege.edu.tr/harita/" title="Ege Harita" target="_blank"><span class="glyphicon glyphicon-globe"></span></a>
+        
+        <hr class="visible-xs">
+        </section>
+
+        <section id="address" class="col-sm-3">
+          <span> Adres:</span><br>Ege Üniversitesi <br>Mühendislik Fakültesi <br>Bilgisayar Mühendisliği Bölümü<br> <br>Kazımdirik Mahallesi,<br>Bornova Metro İstasyonu Karşısı,<br>35100 Bornova / İZMİR          
           <hr class="visible-xs">
         </section>
-        <section id="address" class="col-sm-4">
-          <span>Address:</span><br>
-          7105 Reisterstown Road<br>
-          Baltimore, MD 21215
-          <p>* Delivery area within 3-4 miles, with minimum order of $20 plus $3 charge for all deliveries.</p>
-          <hr class="visible-xs">
+        <section  class="col-sm-3">
+         <span> İLETİŞİM</span><br><br>Telefon <br>+90 232 388 72 21 <br> <br>Faks <br>+90 232 339 94 05 <br> <br>E-Posta <br>
+         bilmuh@mail.ege.edu.tr
+         <hr class="visible-xs">         
+      </section>
+        
+        <section class="col-sm-3 ">
+          <span>&nbsp; SOSYAL MEDYA</span><br><br>          
+          <div  class="dropdown">
+            <button class="dropbtn ">
+               <a href="#" class=" glyphicon glyphicon-link"  ></a>               
+             </button>
+      <div class="dropdown-content" >
+          <br>
+          <a href="https://twitter.com/UniversiteEge" title="visit EU on Twitter" target="_blank"><span class="fa fa-twitter"></span></a>
+          <a href="https://tr-tr.facebook.com/UniversiteEge/" title="visit EU on Facebook" target="_blank" ><span class="fa fa-facebook"  aria-hidden="true"></span></a>
+          <a href="https://www.instagram.com/universiteege/" title="visit EU on Instagram" target="_blank" ><span class="fa fa-instagram"></span></a><br>
+          <a href="https://www.youtube.com/c/egeuniversitesi" title="visit EU on Youtube" target="_blank"><span  class="fa fa-youtube"></span></a>
+          <a href="https://www.linkedin.com/in/eucompeng" title="visit EU on linkedin" target="_blank" ><span  class="fa fa-linkedin"></span></a>
+          <a href="https://tr.pinterest.com/universiteege/s" title="visit EU on Pinterest" target="_blank" ><span class="fa fa-pinterest"></span></a></div></div>
         </section>
-        <section id="testimonials" class="col-sm-4">
-          <p>"The best Chinese restaurant I've been to! And that's saying a lot, since I've been to many!"</p>
-          <p>"Amazing food! Great service! Couldn't ask for more! I'll be back again and again!"</p>
-        </section>
-      </div>
-      <div class="text-center">&copy; Copyright David Chu's China Bistro 2016</div>
     </div>
   </footer>
 

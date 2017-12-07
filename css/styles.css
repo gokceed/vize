@@ -7,15 +7,15 @@ body {
 
 /** HEADER **/
 #header-nav {
-  background-color: #f6b319;
+  background-color: darkblue;
   border-radius: 0;
   border: 0;
 }
 
 #logo-img {
-  background: url('../images/restaurant-logo_large.png') no-repeat;
-  width: 150px;
-  height: 150px;
+  background: url(http://hangiuniversite.com/resimler/universiteler/117.png) no-repeat;
+  width: 200px;
+  height: 200px;
   margin: 10px 15px 10px 0;
 }
 
@@ -26,12 +26,10 @@ body {
   font-family: 'Lora', serif;
   color: #557c3e;
   font-size: 1.5em;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px #222;
-  margin-top: 0;
+  text-transform: uppercase; 
+  margin-top: 5px;
   margin-bottom: 0;
-  line-height: .75;
+  line-height: 1em;
 }
 .navbar-brand a:hover, .navbar-brand a:focus {
   text-decoration: none;
@@ -132,11 +130,11 @@ body {
   box-shadow: 0 1px 5px 1px #cccccc;
 }
 #menu-tile {
-  background: url('../images/menu-tile.jpg') no-repeat;
+  background: url("../images/personel.png") no-repeat;
   background-position: center;
 }
 #specials-tile {
-  background: url('../images/specials-tile.jpg') no-repeat;
+  background: url("../images/egitim.png") no-repeat;
   background-position: center;
 }
 #menu-tile span, #specials-tile span, #map-tile span {
@@ -227,14 +225,83 @@ h3.menu-item-title {
   font-size: .9em;
   font-style: italic;
 }
+ #address {
+  line-height: 2;
+}
+ #address > span {
+  font-size: 1.3em;
+}
+.fa {
+  padding: 8%;
+  font-size: 5px;
+  text-align: center;
+  text-decoration: none;
+  margin: 3%;
+  border-radius: 80%;
+}
+.glyphicon{
+  padding: 2%;
+  font-size: 2em;
+  text-align: center;
+  text-decoration: none;  
+  border-radius: 50%;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.dropdown-content  {
+  display: none;
+  position: absolute;
+  background-color: #222;
+  width: 100%;
+  left: 0;  
+
+}
+.dropbtn{
+
+  background-color: #222;
+  border:none;
+  margin-left: 10%;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 /* END SINGLE CATEGORY PAGE */
 
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
   .container .jumbotron {
-    background: url('../images/jumbotron_1200.jpg') no-repeat;
-    height: 675px;
+    background: url("../images/large.jpg") no-repeat;  
+     height:644px; 
   }
 }
 
@@ -242,17 +309,17 @@ h3.menu-item-title {
 @media (min-width: 992px) and (max-width: 1199px) {
   /* Header */
   #logo-img {
-    background: url('../images/restaurant-logo_medium.png') no-repeat;
-    width: 100px;
-    height: 100px;
+    background: url(http://hangiuniversite.com/resimler/universiteler/117.png) no-repeat;
+    width: 200px;
+    height: 200px;
     margin: 5px 5px 5px 0;
   }
   /* End Header */
 
   /* Home Page */
   .container .jumbotron {
-    background: url('../images/jumbotron_992.jpg') no-repeat;
-    height: 558px;
+   background: url("../images/medium.jpg") no-repeat;
+     height:520px;
   }
   /* End Home Page */
 }
@@ -260,10 +327,13 @@ h3.menu-item-title {
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   /* Home Page */
-  .container .jumbotron {
-    background: url('../images/jumbotron_768.jpg') no-repeat;
-    height: 432px;
+  .navbar-brand h1 { /* Restaurant name */
+    padding-top: 5px;
+    font-size: 2vw; /* 1vw = 1% of viewport width */
   }
+  .container .jumbotron {
+    background: url('../images/small.jpg') no-repeat;
+   height: 400px;   }
   /* End Home Page */
 }
 
@@ -271,12 +341,12 @@ h3.menu-item-title {
 @media (max-width: 767px) {
   /* Header */
   .navbar-brand {
-    padding-top: 10px;
+    padding-top: 8px;
     height: 80px;
   }
   .navbar-brand h1 { /* Restaurant name */
-    padding-top: 10px;
-    font-size: 5vw; /* 1vw = 1% of viewport width */
+    padding-top: 8px;
+    font-size: 3vw; /* 1vw = 1% of viewport width */
   }
   .navbar-brand p { /* Kosher cert */
     font-size: .6em;
@@ -343,6 +413,21 @@ h3.menu-item-title {
   .menu-item-description {
     text-align: center;;
   }
+   .fa {
+  padding: 0.75%;
+  font-size: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  margin: 0.5%;
+  border-radius: 75%;
+}
+.glyphicon{
+  
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;  
+  
+}
 }
 
 
@@ -351,7 +436,7 @@ h3.menu-item-title {
   /* Header */
   .navbar-brand h1 { /* Restaurant name */
     padding-top: 5px;
-    font-size: 6vw;
+    font-size: 5vw;
   }
   /* End Header */
   

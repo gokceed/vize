@@ -1,0 +1,92 @@
+[{	"id":81,
+	"short_name":"o",
+	"name":"Öğretim Üyeleri",
+	"worker":[		{
+		    "short_name":"oguz",
+			"name":"Oğuz DIKENELLI",
+			"lisans":"Elektrik-Elektronik Müh. (Orta Doğu Teknik Üniv., 1988)",
+			"eposta":"oguz.dikenelli@ege.edu.tr",
+			"telefon":"0232 388 72 21"
+		},
+		{
+			"short_name":"serdar",
+			"name":"Serdar KORUKOĞLU",
+			"lisans":"Endüstri Müh. (Ege Üniv., 1978)",
+			"eposta":"serdar.korukoglu@ege.edu.tr",
+			"telefon":"0232 311 25 86"
+		},
+		{ "short_name":"aybars",
+			"name":"Aybars UĞUR",
+			"lisans":"Bilgisayar Müh. (Ege Üniv., 1993)",
+			"eposta":" aybars.ugur@ege.edu.tr",
+			"telefon":"  0232 311 53 22"
+		},
+		{ "short_name":"cenk",
+			"name":"Rıza Cenk ERDUR",
+			"lisans":"Bilgisayar Müh. (Ege Üniv., 1993)",
+			"eposta":"cenk.erdur@ege.edu.tr",
+			"telefon":"0232 311 25 97"
+		},
+		{  "short_name":"ozgu",
+			"name":"Özgü CAN",
+			"lisans":"Bilgisayar Müh. (Selçuk Üniv., 1999)",
+			"eposta":"ozgu.can@ege.edu.tr",
+			"telefon":"0232 311 53 32"
+		},
+		{ "short_name":"ahmet",
+			"name":"Ahmet EGESOY",
+			"lisans":"Bilgisayar Müh. (ODTÜ, 1994)",
+			"eposta":"ahmet.egesoy@ege.edu.tr",
+			"telefon":"0232 311 53 34"
+		}
+	]},
+{
+	"id":82,
+	"short_name":"a",
+	"name":"Akademik Yardımcı",
+	"worker":[	{
+		"short_name":"birol",
+			"name":"Birol ÇİLOĞLUGİL",
+			"lisans":"Bilgisayar Müh. (Ege Üniv., 2004)",
+			"eposta":"birol.ciloglugil@ege.edu.tr",
+			"telefon":"0232 311 25 93"
+		},
+		{"short_name":"okan",
+			"name":"Okan BURSA",
+			"lisans":"Bilgisayar Müh. (İstanbul Teknik Üniv., 2005)",
+			"eposta":"okan.bursa@ege.edu.tr",
+			"telefon":"0232 311 53 36"
+		},{"short_name":"osman",
+			"name":"Osman GÖKALP",
+			"lisans":"Bilgisayar Müh. (Ege Üniv., 2010)",
+			"eposta":"osman.gokalp@ege.edu.tr",
+			"telefon":"0232 311 53 31"
+		},{
+			"short_name":"fatmana",
+			"name":"Fatmana ŞENTÜRK",
+			"lisans":"Bilgisayar Müh. (Pamukkale Üniv., 2008)",
+			"eposta":"fatmana.senturk@ege.edu.tr",
+			"telefon":"0232 311 53 35"
+		}
+	]},
+{
+	"id":83,
+	"short_name":"i",
+	"name":"İdari Teknik",
+	"worker":[
+		{
+			"short_name":"hayriye",
+			"lisans":" ",
+			"eposta":" ",
+			"name":"Hayriye UYGUN",			
+			"telefon":"0232 311 53 33"
+		},{
+			"short_name":"okan2",
+			"lisans":" ",
+			"eposta":" ",
+			"name":"Okan ÇORBACIOĞLU",
+			"telefon":"0232 311 53 33"
+		}
+			]
+}
+]
